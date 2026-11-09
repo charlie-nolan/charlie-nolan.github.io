@@ -43,3 +43,4 @@ main{display:grid;gap:28px;padding-block:24px 56px}
 .rtile .noimg { display: grid; place-items: center; background: color-mix(in srgb,var(--accent) 14%,var(--paper)); color: var(--accent); font-family: var(--display); font-size: 2.4rem; font-weight: 800; }
 .rtile b { font-family: var(--display); font-weight: 800; font-size: 1.02rem; line-height: 1.2; padding: 0 2px 4px; }
 .recipe-photo{display:block;width:100%;height:auto;border:1px solid var(--rule)}
+.note pre,pre{white-space:pre-wrap;word-break:break-word;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:1rem;font-size:.85em;line-height:1.5;overflow-x:auto}
