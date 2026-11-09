@@ -63,8 +63,10 @@
   .prices table { width: 100%; border-collapse: collapse; }
   .prices th, .prices td { text-align: left; padding: 12px 14px; border-top: 1px solid var(--rule); vertical-align: top; }
   .prices th { font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; color: var(--muted); border-top: 0; }
-  .prices td:last-child, .prices th:last-child { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
-  .prices td:last-child { font-family: var(--display); font-weight: 700; font-size: 1.25rem; }
+  .prices tbody td:first-child { width: 100%; }
+  .prices tbody td:last-child, .prices thead th:last-child { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; padding-left: 8px; }
+  .prices tbody td:last-child { font-family: var(--display); font-weight: 700; font-size: 1.25rem; }
+  @media (max-width: 480px) { .prices th, .prices td { padding: 10px 12px; } }
   .prices td small { display: block; color: var(--muted); font-size: .88rem; font-family: var(--body); font-weight: 400; }
   .prices tfoot td { background: var(--tag); font-size: .92rem; color: var(--fg); border-top: 1px solid var(--rule); }
   .tablewrap { overflow-x: auto; }
