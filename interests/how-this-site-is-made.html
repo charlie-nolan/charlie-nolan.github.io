@@ -47,6 +47,7 @@ main{display:grid;gap:28px;padding-block:24px 56px}
 .rtile .noimg { display: grid; place-items: center; background: color-mix(in srgb,var(--accent) 14%,var(--paper)); color: var(--accent); font-family: var(--display); font-size: 2.4rem; font-weight: 800; }
 .rtile b { font-family: var(--display); font-weight: 800; font-size: 1.02rem; line-height: 1.2; padding: 0 2px 4px; }
 .recipe-photo{display:block;width:100%;height:auto;border:1px solid var(--rule)}
+.note pre,pre{white-space:pre-wrap;word-break:break-word;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:1rem;font-size:.85em;line-height:1.5;overflow-x:auto}
 </style></head><body>
 <header><div class="wrap"><a class="name" href="../">Charlie Nolan</a><a href="index.html">All interests</a></div></header>
 <main class="wrap">
@@ -83,7 +84,31 @@ main{display:grid;gap:28px;padding-block:24px 56px}
 <p>Part of the vault borrows <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">Andrej Karpathy's "LLM wiki" idea</a>: I save articles and sources, and Claude (an AI assistant) reads them, writes and links summary notes, keeps an index and a log, and checks for contradictions. A map file at the top of the vault tells it where everything goes.</p>
 <p>Mine is less of a research wiki and more of a messy personal one. The interest notes are mine: Claude can link them but doesn't rewrite them unless I ask. Ideas go into an inbox first and get sorted later. And unlike Karpathy's, mine has a public side, so the one rule Claude can't break is that it never publishes anything on its own. I pick every public note by hand.</p>
 <h2>If you want to build one</h2>
-<p>You need Obsidian, a GitHub account, and a weekend. Start with an empty vault and one note. Add the publish workflow once you have something worth publishing. Don't build the whole system before you've written anything.</p></div>
+<p>Copy this into an AI assistant that can work with files and GitHub (Claude Code works well), and it'll walk you through it:</p>
+<pre><code>Help me set up a &quot;second brain&quot; that also publishes a personal website.
+
+- An Obsidian vault of plain Markdown notes, one topic per note, stored in a
+  PRIVATE GitHub repo. Sync it on desktop with the Obsidian Git plugin and on
+  my phone with a git app.
+- A CLAUDE.md (or AGENTS.md) map at the top of the vault saying what each
+  folder is for and what you may and may not edit.
+- Every note has frontmatter with a publish field that defaults to false.
+  You never change it yourself; I decide what goes public.
+- A small Python build script that turns only published notes into a static
+  site: a homepage built from section notes, interest pages, photo galleries
+  (strip EXIF/GPS from every image) and recipe tiles. Links to private notes
+  are removed, and a &quot;private-only&quot; tag blocks a note even if it's marked.
+- A GitHub Actions workflow that runs the build on every push to the vault and
+  pushes the result to a separate PUBLIC repo served by GitHub Pages, using a
+  fine-grained token limited to that one repo.
+- Optionally, Karpathy's LLM-wiki pattern: a read-only Sources/ folder, a
+  Notes/ folder you maintain, index.md and log.md, and ingest / query / lint
+  routines described in the map file.
+
+Start small: make the vault and one note, then add publishing once I have
+something worth publishing. Explain each step for a beginner, tell me exactly
+what I need to click or run myself, and never put tokens in a file or chat.
+</code></pre></div>
 </article>
 </main>
 </body></html>
