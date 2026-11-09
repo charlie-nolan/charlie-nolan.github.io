@@ -113,6 +113,12 @@
   .photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid var(--rule); background: var(--paper); }
   .photo figcaption { display: flex; justify-content: space-between; gap: 8px; font-size: .86rem; color: var(--muted); }
   .photo time { font-family: var(--mono); font-size: .74rem; }
+  .recipes { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr)); gap: 12px; }
+  .rtile { display: grid; gap: 8px; text-decoration: none; color: var(--fg); background: var(--paper); border: 1px solid var(--rule); padding: 8px; }
+  .rtile:hover { border-color: var(--accent); }
+  .rtile img, .rtile .noimg { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .rtile .noimg { display: grid; place-items: center; background: var(--accent-soft, #dfe7fa); color: var(--accent); font-family: var(--display); font-size: 2.4rem; font-weight: 800; }
+  .rtile b { font-family: var(--display); font-weight: 800; font-size: 1.02rem; line-height: 1.2; padding: 0 2px 4px; }
   .card .tags { display: flex; flex-wrap: wrap; gap: 4px 10px; font-family: var(--mono); font-size: .76rem; color: var(--muted); }
   #interests > a { font-weight: 600; }
 
