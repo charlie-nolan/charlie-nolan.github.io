@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Shepherd&#x27;s pie</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>[hidden]{display:none!important}:root{--bg:#eef0f1;--paper:#fbfcfc;--fg:#141b22;--muted:#55606b;--rule:#cfd5da;--accent:#2453c7;--tag:#b4530f;
+--display:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;--body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11161b;--paper:#182027;--fg:#e8ecef;--muted:#9aa6b1;--rule:#2c3640;--accent:#7fa4ff;--tag:#f0a060;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#11161b;--paper:#182027;--fg:#e8ecef;--muted:#9aa6b1;--rule:#2c3640;--accent:#7fa4ff;--tag:#f0a060;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.55}
+.wrap{max-width:880px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.2rem,7vw,3.6rem);font-weight:800;letter-spacing:-.02em}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+header .wrap{display:flex;justify-content:space-between;align-items:baseline;gap:8px 20px;flex-wrap:wrap;padding-block:20px}
+.name{font-family:var(--display);font-weight:800;font-size:1.3rem;text-decoration:none;color:var(--fg)}
+.label{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+main{display:grid;gap:28px;padding-block:24px 56px}
+.intro{display:grid;gap:14px}
+.filters{display:flex;flex-wrap:wrap;gap:6px}
+.filters button{font:inherit;font-family:var(--mono);font-size:.8rem;background:var(--paper);color:var(--fg);border:1px solid var(--rule);padding:4px 10px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.group{display:grid;gap:12px}.group h2{font-size:1.5rem;font-weight:800}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:12px}
+.card{display:grid;gap:8px;align-content:start;padding:16px;background:var(--paper);border:1px solid var(--rule);text-decoration:none;color:var(--fg);min-width:0}
+.card:hover{border-color:var(--accent)}
+.card h3{font-size:1.2rem;font-weight:800}
+.card p{margin:0;color:var(--muted);font-size:.94rem}
+.status{justify-self:start;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--tag);border:1px solid currentColor;padding:1px 7px}
+.tags{display:flex;flex-wrap:wrap;gap:4px 10px;font-family:var(--mono);font-size:.76rem;color:var(--muted)}
+.note{display:grid;gap:18px;max-width:68ch}
+.summary{margin:0;font-size:1.1rem}
+.prose h2{font-size:1.35rem;font-weight:800;margin:1.4em 0 .4em}
+.prose p,.prose ul{margin:0 0 .8em}
+.prose a{word-break:break-word}
+.meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.prose figure{margin:0 0 1em}.prose figure img{display:block;width:100%;height:auto;border:1px solid var(--rule);background:var(--paper)}.prose figcaption{font-size:.88rem;color:var(--muted);margin-top:6px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:14px;margin:0 0 1em;align-items:start}.gallery figure{margin:0}
+.note:has(.gallery){max-width:none}.note:has(.gallery) .prose p{max-width:68ch}
+.photos{columns:3 260px;column-gap:14px}.photos .photo{break-inside:avoid;margin:0 0 14px;display:grid;gap:6px}
+.photos img{display:block;width:100%;height:auto;border:1px solid var(--rule);background:var(--paper)}
+.photo figcaption{display:flex;justify-content:space-between;gap:8px;font-size:.86rem;color:var(--muted)}.photo time{font-family:var(--mono);font-size:.74rem}
+.recipes { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr)); gap: 12px; }
+.rtile { display: grid; gap: 8px; text-decoration: none; color: var(--fg); background: var(--paper); border: 1px solid var(--rule); padding: 8px; }
+.rtile:hover { border-color: var(--accent); }
+.rtile img, .rtile .noimg { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.rtile .noimg { display: grid; place-items: center; background: color-mix(in srgb,var(--accent) 14%,var(--paper)); color: var(--accent); font-family: var(--display); font-size: 2.4rem; font-weight: 800; }
+.rtile b { font-family: var(--display); font-weight: 800; font-size: 1.02rem; line-height: 1.2; padding: 0 2px 4px; }
+.recipe-photo{display:block;width:100%;height:auto;border:1px solid var(--rule)}
+</style></head><body>
+<header><div class="wrap"><a class="name" href="../">Charlie Nolan</a><a href="index.html">All recipes</a></div></header>
+<main class="wrap">
+<article class="note recipe"><h1>Shepherd&#x27;s pie</h1><p class="summary">Beef and Guinness filling under a cream cheese and Irish cheddar mash.</p><div class="prose"><h2>Filling</h2>
+<ul>
+<li>2 pounds ground beef or lamb</li>
+<li>1 1/2 yellow onions, diced (between baseball and softball size)</li>
+<li>5–10 cloves garlic, minced</li>
+<li>3 medium carrots, diced or shredded</li>
+<li>1 cup frozen peas</li>
+<li>1 cup beef stock</li>
+<li>1–2 cups Guinness</li>
+<li>1/2 of a Cento tomato paste tube</li>
+<li>4 tablespoons Worcestershire sauce</li>
+<li>3 tablespoons flour</li>
+<li>Minced fresh thyme</li>
+<li>Minced fresh rosemary</li>
+</ul>
+<h2>Mashed potato topping</h2>
+<ul>
+<li>2 pounds russet potatoes</li>
+<li>3/4 stick butter</li>
+<li>1/3 block Philadelphia cream cheese</li>
+<li>Fat handful of grated Kerrygold Reserve aged Irish cheddar</li>
+<li>2 egg yolks whisked with a bit of milk</li>
+<li>1/3 cup milk</li>
+<li>Salt, pepper and garlic powder</li>
+</ul>
+<h2>Filling steps</h2>
+<ol>
+<li>Sauté minced garlic on low heat until it slightly browns, add onion and mix until they're semi transparent.</li>
+<li>Raise the heat to medium and push the onion garlic mixture to the sides of the pan so there's a ring of onions around the outside of the pan with a bare center. Press the meat in the middle so it's like a giant hamburger and let it cook for a while until the fat bubbles through the mega burger and turns the little meat geysers grey (this lets you get a nice brown crust on the bottom).</li>
+<li>Aggressively stab the meat with a mixing spoon and mix it all together. You want all the clumps gone and a nice even ground beef consistency. Brown it all and cook it thoroughly.</li>
+<li>Drain 2/3 of the fat out (if there's a lot; some meat doesn't make a lot of fat, so keep it if there's only a little), then add the carrots, rosemary and thyme.</li>
+<li>Add the flour and mix it in. Smell it right after you put the flour in, then keep mixing until it doesn't smell like raw flour anymore.</li>
+<li>Add the Guinness and deglaze the pan with the mixing spoon.</li>
+<li>Add the tomato paste, beef stock and Worcestershire sauce, mix it all up and let it thicken (if you drag the spoon along the bottom, the mix shouldn't fill up the space you dragged).</li>
+<li>Add the frozen peas and keep it on very low heat while you do the potatoes.</li>
+</ol>
+<h2>Mashed potato steps</h2>
+<ol>
+<li>Peel and cut potatoes for mashing.</li>
+<li>Salt a pot of water, put them in and put it on max heat. Boil until fork tender.</li>
+<li>Drain them and put them back in the hot pot, off the heat. Let them steam off a little.</li>
+<li>Put in the butter and cream cheese and mash them, add the milk and mash more, add cheese and mash more, add the egg yolk mix and mix it up. Add a bunch of salt, pepper and garlic powder to taste.</li>
+</ol>
+<h2>Assemble and bake</h2>
+<ol>
+<li>Pour the beef mixture into a casserole dish. I use a 9x9 that's about 4 inches tall, but a bigger, shallower one works too. Spread it out so it's really even.</li>
+<li>Evenly spread the potatoes by dolloping spoonfuls all across it, or fill a Ziploc with the potatoes, cut the corner and pipe it like an icing bag. It's hard to spread them without messing up the meat mix; you want two even, distinct layers.</li>
+<li>Spread out the top so it's even and the edges are sealed, then drag a fork across the top in a cool design so it browns well.</li>
+<li>Bake uncovered at 400°F for 20 minutes. Take it out, add a bit more grated cheddar on top, and bake 10 more minutes or until it's nicely browned.</li>
+<li>Let it sit and cool for a while. It'll be really runny right out of the oven.</li>
+</ol></div></article>
+</main>
+</body></html>
