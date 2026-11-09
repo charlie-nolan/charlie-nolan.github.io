@@ -3,3 +3,7 @@ name: Charlie Nolan
 index_title: Interests
 all_label: All interests
 fonts: '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">'
+gallery_dir: Photography
+gallery_title: Photography
+gallery_heading: Through the lens
+gallery_intro: Things I've pointed a camera at.

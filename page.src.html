@@ -108,6 +108,11 @@
   .tagnav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
   .tagnav a { font-family: var(--mono); font-size: .8rem; text-decoration: none; color: var(--fg); background: var(--paper); border: 1px solid var(--rule); padding: 4px 10px; }
   .tagnav a:hover { border-color: var(--accent); color: var(--accent); }
+  .photostrip { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 10px; }
+  .photo { margin: 0; display: grid; gap: 6px; }
+  .photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid var(--rule); background: var(--paper); }
+  .photo figcaption { display: flex; justify-content: space-between; gap: 8px; font-size: .86rem; color: var(--muted); }
+  .photo time { font-family: var(--mono); font-size: .74rem; }
   .card .tags { display: flex; flex-wrap: wrap; gap: 4px 10px; font-family: var(--mono); font-size: .76rem; color: var(--muted); }
   #interests > a { font-weight: 600; }
 
@@ -120,6 +125,7 @@
     <nav aria-label="Sections">
       <a href="#interests">Interests</a>
       <a href="#projects">Projects</a>
+      <!-- photonav:start --><!-- photonav:end -->
       <a href="#code">GitHub</a>
       <a href="#mechanic">Mechanic</a>
       <a href="https://www.instagram.com/cno3117/">Instagram</a>
@@ -202,6 +208,9 @@
       </div>
     </article>
   </section>
+
+  <!-- photos:start -->
+  <!-- photos:end -->
 
   <section id="code">
     <p class="label">GitHub</p>
