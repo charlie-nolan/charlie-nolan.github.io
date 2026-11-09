@@ -54,6 +54,8 @@ document.querySelectorAll('[data-filter]').forEach(function (b) {
     document.querySelectorAll('.group').forEach(function (g) { g.hidden = !g.querySelector('.card:not([hidden])'); });
   });
 });
+var want = new URLSearchParams(location.search).get('tag');
+if (want) { var btn = document.querySelector('[data-filter="' + want.replace(/[^a-z0-9-]/g, '') + '"]'); if (btn) btn.click(); }
 </script>
 </main>
 </body></html>
