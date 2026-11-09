@@ -30,3 +30,6 @@ main{display:grid;gap:28px;padding-block:24px 56px}
 .prose p,.prose ul{margin:0 0 .8em}
 .prose a{word-break:break-word}
 .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.prose figure{margin:0 0 1em}.prose figure img{display:block;width:100%;height:auto;border:1px solid var(--rule);background:var(--paper)}.prose figcaption{font-size:.88rem;color:var(--muted);margin-top:6px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:14px;margin:0 0 1em;align-items:start}.gallery figure{margin:0}
+.note:has(.gallery){max-width:none}.note:has(.gallery) .prose p{max-width:68ch}
