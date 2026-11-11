@@ -74,7 +74,9 @@ and nobody has time to page through it in a driveway.</p>
 
 <figure><a href="img/cyberdeck-case-power-on.jpg"><img src="img/cyberdeck-case-power-on.jpg" alt="Power inside the case: M12 pack, low-voltage cutoff and buck converters" loading="lazy"></a><figcaption>Power inside the case: M12 pack, low-voltage cutoff and buck converters</figcaption></figure>
 
-</div><h2>Team mode</h2>
+</div><h2>Community data</h2>
+<p>Manuals assume a car kept by the book, and the pre-baked fix cards keep only the confirmed fix for each code. So I added a second layer: what owners actually tested, ruled out and fixed, pulled from about 39,000 Subaru Reddit and forum threads by a local model. Every item has to quote the thread word for word, Python checks the quote, and anything that fails is dropped. The model was picked in a blind test (9 wrong items against the bigger model's 26). The result, merged on Nov 11, is 29,899 checked threads with 61,000 tests and 34,000 reasoning chains, linked to the manual pages they touch and searchable by meaning. It always ranks below the manual. The full write-up, including how it differs from the cards' filter (77% of threads kept instead of 11%): https://github.com/charlie-nolan/open-diag-cyberdeck/blob/main/docs/COMMUNITY_DATA.md</p>
+<h2>Team mode</h2>
 <p>The deck already runs on local models: Qwen on the Orange Pi's NPU, or two bigger Qwen models streaming from my
 PC. Team mode is a separate app with the same screens that hands every question to a team instead: Gemini and
 GPT-OSS (through Google's Antigravity CLI) and my local Qwen each work the case with read-only lookups into my
