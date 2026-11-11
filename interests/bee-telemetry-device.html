@@ -51,7 +51,13 @@ main{display:grid;gap:28px;padding-block:24px 56px}
 </style></head><body>
 <header><div class="wrap"><a class="name" href="../">Charlie Nolan</a><a href="index.html">All interests</a></div></header>
 <main class="wrap">
-<article class="note"><h1>Bee telemetry and pollen sampler</h1><div class="meta"><span class="status">Design stage · open hardware planned</span></div><style>.glance{display:grid;gap:14px;margin:0 0 1.6em}.glance .shots{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr))}.glance img{width:100%;height:auto;display:block;border:1px solid var(--rule)}.glance table{width:100%;border-collapse:collapse;font-size:.92rem}.glance th,.glance td{text-align:left;padding:7px 0;border-top:1px solid var(--rule);vertical-align:top}.glance th{font-weight:400;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);width:38%;padding-right:12px}.glance .links{display:flex;flex-wrap:wrap;gap:8px 18px;font-weight:600}</style><div class="glance"><table><tr><th>Sensors</th><td>Load cells, SHT45 temperature/humidity, DS18B20 cluster row, I2S microphone, IR entrance counter</td></tr><tr><th>Compute</th><td>ESP32-S3 Plus always-on hive node; second ESP32-S3 runs the pollen robot as a PLC-style step sequence; Raspberry Pi Zero 2 W powered up only to image and identify</td></tr><tr><th>Data</th><td>SQLite on the device, graphs over time; every pollen sample keyed to its cassette and frame</td></tr><tr><th>Connectivity</th><td>Sends results and thumbnails only, over Wi-Fi with an LTE-M fallback; the device dials out over an encrypted tunnel</td></tr><tr><th>Power</th><td>10 W solar panel on its own post, 18650 pack; telemetry-only winter mode</td></tr><tr><th>Next step</th><td>Hand-made bench test of the skewer-and-slice idea, then a working pollen robot</td></tr></table></div><div class="prose"><p>A solar-powered "smart bottom board" that sits under a beehive. It logs how the colony is doing, and samples, archives and identifies the pollen the bees bring home, so a season of foraging can be laid against hive health, the weather and what's in bloom.</p>
+<article class="note">
+<h1>Bee telemetry and pollen sampler</h1>
+<div class="meta"><span class="status">Down the rabbit hole</span><span class="label">Since 2026-11-09</span><div class="tags"><span>#electronics</span><span>#esp32</span><span>#ai</span><span>#bees</span><span>#microscopy</span></div></div>
+<p class="summary">A solar hive base that logs hive telemetry and samples, archives and identifies the pollen the bees bring home.</p>
+<style>.glance{display:grid;gap:14px;margin:0 0 1.6em}.glance .shots{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr))}.glance img{width:100%;height:auto;display:block;border:1px solid var(--rule)}.glance table{width:100%;border-collapse:collapse;font-size:.92rem}.glance th,.glance td{text-align:left;padding:7px 0;border-top:1px solid var(--rule);vertical-align:top}.glance th{font-weight:400;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);width:38%;padding-right:12px}.glance .links{display:flex;flex-wrap:wrap;gap:8px 18px;font-weight:600}</style><div class="glance"><table><tr><th>Sensors</th><td>Load cells, SHT45 temperature/humidity, DS18B20 cluster row, I2S microphone, IR entrance counter</td></tr><tr><th>Compute</th><td>ESP32-S3 Plus always-on hive node; second ESP32-S3 runs the pollen robot as a PLC-style step sequence; Raspberry Pi Zero 2 W powered up only to image and identify</td></tr><tr><th>Data</th><td>SQLite on the device, graphs over time; every pollen sample keyed to its cassette and frame</td></tr><tr><th>Connectivity</th><td>Sends results and thumbnails only, over Wi-Fi with an LTE-M fallback; the device dials out over an encrypted tunnel</td></tr><tr><th>Power</th><td>10 W solar panel on its own post, 18650 pack; telemetry-only winter mode</td></tr><tr><th>Next step</th><td>Hand-made bench test of the skewer-and-slice idea, then a working pollen robot</td></tr></table></div>
+<div class="prose"><h2>In short</h2>
+<p>A solar-powered "smart bottom board" that sits under a beehive. It logs how the colony is doing, and samples, archives and identifies the pollen the bees bring home, so a season of foraging can be laid against hive health, the weather and what's in bloom.</p>
 <p><strong>Telemetry.</strong> Load cells weigh the hive, which is the best stand-in for colony size, nectar flow and swarms. Sensors track temperature and humidity inside and out, a row of probes maps the winter cluster, a microphone logs sound bands, and the entrance counts bees in and out. It all goes into SQLite and gets graphed over time.</p>
 <p><strong>Pollen robot.</strong> About once an hour a trap grid swings in for a few minutes, then out again, because colonies don't like losing pollen. If anything fails, the grid parks open.</p>
 <ol>
@@ -78,6 +84,163 @@ main{display:grid;gap:28px;padding-block:24px 56px}
 <li><strong>The whole hive alongside.</strong> The hourly random pellets from untagged bees show what the colony as a whole is bringing in. Those get laid against the telemetry: weight, brood temperature, sound and dances.</li>
 </ul>
 <p>If tagged bees' choices track the colony's state (brood, dearth, dances) more than their own past choices, it's a collective decision. If each bee stays loyal to her own flowers whatever the hive is doing, it's personal.</p>
-<p>Built for science, not profit. Designs, code and data will be open once it works on a hive.</p></div></article>
+<p>Built for science, not profit. Designs, code and data will be open once it works on a hive.</p>
+<h2>What hooked me</h2>
+<p>I learned about studies tracking which plants hives prefer and when. The idea: a solar-powered
+"smart bottom board" that logs sound, temperature, humidity, traffic and weight into SQLite and graphs it over time, plus a
+pollen robot that takes a pellet about once an hour, archives it on a tape cassette, and (later) reads it with a built-in
+microscope and a tiny local model. Then pollen trends can be laid against hive health, weather, bloom and the seasons.</p>
+<p>Doing it for science, not profit: open hardware, open code, open data once it works on a hive.</p>
+<h3>Who it's for</h3>
+<ul>
+<li>Pollen researchers, especially labs doing pollen DNA metabarcoding and floral-fidelity work. The device is designed to give
+  them as much useful data as possible: per-pellet records, a DNA-ready archive, sampling effort and context, raw images, open export.</li>
+<li>More on how labs identify pollen in .</li>
+</ul>
+<h3>Scope and phases</h3>
+<ul>
+<li><strong>MVP fallback:</strong> automated pellet collection onto the cassette, read at home or in a lab. The built-in microscope and ID
+  model is the real goal, added as a stage.</li>
+<li><strong>Phase 1:</strong> telemetry + pollen robot (random hourly pellets).</li>
+<li><strong>Phase 2:</strong> ~5 tagged focal bees + an entrance camera reading tags (needs a 30-40 W panel and a separate battery box).
+  Crossover study: strip every 4th trip vs every trip, counterbalanced order, washout days, at least 3 bees per order,
+  never-stripped controls, camera logs every trip.</li>
+<li><strong>Phase 3:</strong> observation hive with automatic waggle-dance decoding.</li>
+<li><strong>Extras:</strong> LoRa bloom camera nodes at forage patches (send a bloom index, not photos), varroa sticky-board camera,
+  weather (wind, rain, light, pressure), lid/inspection switch, CO₂ (SCD41), frame vibration.</li>
+<li>What I want to test: colony state (brood, dearth, dances) drives how mixed the pellets are, not just individual bee preference.</li>
+</ul>
+<h3>Where it lives</h3>
+<ul>
+<li><strong>Not inside the hive.</strong> Bees build comb in any gap over ~9 mm, propolise anything smaller, and it's 35 °C and humid in there.</li>
+<li><strong>A smart bottom board under the hive.</strong> Bees walk in over the trap grid; pellets fall through bee-proof mesh into the mechanism.</li>
+<li><strong>Three zones:</strong> bee zone at the front (wood or ASA/PETG, no PLA), sealed mechanism zone (gasket, silica gel, lens heater),
+  and a store-bought IP65 electronics box that slides out the back like a drawer. The cassette slides out the back too.</li>
+<li>Tamper-proofing for hives in public places: security screws, cable lock, panel high on its post. Condensation is the biggest risk.</li>
+</ul>
+<h3>Telemetry</h3>
+<ul>
+<li><strong>Weight</strong> (4 load cells + HX711 on a separate scale frame with ant moats): best proxy for colony size, nectar flow and swarms.</li>
+<li><strong>Temperature/humidity:</strong> SHT45 in the brood box and one outside; a DS18B20 row across the frames maps the winter cluster.</li>
+<li><strong>Sound:</strong> INMP441 I2S mic, FFT on the ESP32, log band energies (not raw audio), including a 200-500 Hz dance-vibration
+  experiment. Swarm/queenless classifier later, once there are labelled events from hive inspection notes.</li>
+<li><strong>Traffic:</strong> IR break-beam tunnels in phase 1; entrance camera in phase 2.</li>
+</ul>
+<h3>Pollen trap: be kind to the bees</h3>
+<ul>
+<li>Colonies get upset when pollen is taken, so the grid is <strong>servo-deployed only briefly, about hourly</strong>.</li>
+<li>Retract once a pellet lands; skip runs when few bees are flying; log every deployment.</li>
+<li><strong>Fail open:</strong> gravity/spring holds the grid out, servo parks open on boot, a supercap parks it on brownout.</li>
+</ul>
+<h3>Pollen robot, design v2: catch, skewer, slice, swing, smear</h3>
+<p>Why v2: tape adhesive can't hold a pellet against a cutting wire (it tips and peels). Now the funnel throat and a skewer
+hold the pellet, so no cutting force goes through the tape. One sample takes 1-2 minutes, once an hour.
+1. <strong>Funnel + throat:</strong> vibration feeds a PTFE-coated funnel; the ~4.5 mm throat holds one pellet on a gate flap; a break-beam
+   confirms it. The pellet camera (white + 405 nm) logs colour, size and UV, and sets the skewer depth.
+2. <strong>Skewer:</strong> a horizontal skewer wire feeds into one side, stopping 0.5 mm short of the cut plane (no carry-in contamination).
+3. <strong>Cut:</strong> a vertical wire draw-cuts down the centre line, feeding while it cuts.
+4. <strong>Drop:</strong> the gate opens and the free half lands on dry high-tack tape. That's the <strong>archive half</strong>, kept whole for DNA.
+5. <strong>Pre-wet:</strong> a felt tip lays a short PG (or glycerin) + ethanol streak ahead of the stamp point. Index-matched clearing fluid.
+6. <strong>Swing + smear:</strong> the arm pivots 90° so the cut face points down, then stamps/drags 2-3 smears at different pressures.
+   That gives a density gradient, and software picks the best single-layer region.
+7. <strong>Discard:</strong> the arm swings over a waste bin inside the cassette, a solenoid snips clean wire above the pellet, fresh wire feeds.
+8. <strong>Laminate:</strong> cover film (0.13-0.17 mm, COC ideal) + a compliant pinch squashes the archive half into a disc.
+9. <strong>Microscope</strong> (phase 2 bolt-on) scans the smear; the <strong>capstan</strong> meters tape by sprocket count.</p>
+<ul>
+<li><strong>Everything that touches pollen is single-use:</strong> fresh wire, fresh tape, bin leaves with the cassette. Run blank cycles to
+  measure funnel/throat carryover.</li>
+<li><strong>Tape layout:</strong> archive disc (~5 mm) + smear zone (~10 mm) ≈ 23 mm = 3 sprocket frames per sample. Blank night gap of
+  3 frames (6 on Sundays) marks days, so only the cassette start/end date matters.</li>
+<li><strong>Wires:</strong> cut wire 35-38 AWG stainless at 2-7 N, ~25 mm per run; skewer ~0.3-0.4 mm spring stainless in a guide tube.</li>
+<li>Dropped along the way: singulator disc, masking carrier tape, rolled print, syringe pump, twin-wire bridge, suction arm.
+  Dry grinding is out (sugar binder smears, grains break).</li>
+<li>Control: PLC-style firmware in C++ on the motion ESP32 (scan loop, step sequence, interlocks, timeouts, FAULT = grid open).
+  OpenPLC/ladder as a side lab.</li>
+<li>Pellet stickiness varies with humidity: log drawer RH, pellet size and press "hardness" per frame; 2-3 recipes like fuel trims.</li>
+</ul>
+<h3>Cassette</h3>
+<ul>
+<li><strong>One cassette = one experiment run = 4-6 weeks</strong>, about one tagged cohort's foraging life. Tag the cohort ~3 weeks before loading.</li>
+<li>Ships to a lab with a <strong>SQLite export</strong> (telemetry, focal-bee trips, per-pellet rows) keyed by cassette ID + frame.</li>
+<li>Contents: sample tape, cover film, archive take-up, cut wire supply + used spool, skewer wire, felt-tip cartridge, waste bin,
+  desiccant, QR run ID.</li>
+<li>Tape: start with Scotch Crystal Clear 12 mm (glossy, acrylic adhesive); then forensic lifting tape. Cover: 16 mm clear
+  polyester leader (sprocket indexing). Under $10 a season in consumables.</li>
+<li>Size estimate: pollen unit ~15 × 12 × 6 cm, cassette ~13 × 8 × 2.5 cm, microscope bay ~12 × 4 × 4 cm.</li>
+</ul>
+<h3>Microscope (phase 2)</h3>
+<ul>
+<li>~1 µm resolution: <strong>20x/0.4 RMS objective</strong> + tube lens + lensless Pi camera (OpenFlexure-style), laid flat with a 45° mirror.</li>
+<li>Depth of field ~3 µm: printed flexure Z (28BYJ-48 + M3 screw), 10-15 slice focus stacks. Tape advance does the X scan.</li>
+<li>Brightfield LED below, oblique LEDs for texture, 405 nm for autofluorescence, permanent yellow long-pass filter.</li>
+<li>Could first be a desktop cassette reader before it's docked into the hive unit.</li>
+</ul>
+<h3>Compute</h3>
+<ul>
+<li><strong>ESP32-S3 Plus = hive node.</strong> Always on, mostly asleep: sensors, FFT, DS3231 RTC (time master), battery gauge, LoRa receive
+  windows for bloom nodes, buffers readings, switches the Pi.</li>
+<li><strong>ESP32-S3 = motion controller</strong> for servos, steppers (TMC2209), LEDs; talks to the Pi over UART.</li>
+<li><strong>Pi Zero 2 W = imager and record keeper,</strong> power-gated per sample. SQLite master copy; read-only root + data partition;
+  only cut power after a "halted" GPIO. Keep raw focus stacks (~10-25 GB a season).</li>
+<li><strong>Connectivity:</strong> send results and thumbnails only, over public Wi-Fi with an LTE-M fallback; the device dials out
+  (WireGuard/Tailscale). Desktop syncs the DB for Grafana/Datasette graphs and model training.</li>
+<li>Phase 2 adds a second Pi Zero 2 W + global-shutter camera for tags. Phase 3: my original Jetson Nano (bench, mains power).</li>
+<li>"Ideal" later version: custom PCB (ESP32-S3 + RP2350 motion coprocessor), CM4, LiFePO4 + MPPT.</li>
+</ul>
+<h3>Pollen ID model</h3>
+<ul>
+<li>UV frame finds grain masks almost for free; UV brightness + size gates out debris.</li>
+<li>One MobileNetV3-Small int8 on the best-focus crop + UV channels; a few seconds per sample on the Zero 2 W.</li>
+<li>Pretrain on public datasets, fine-tune on my own tape reference set from local flowers. Count per pellet with a "mixed" flag;
+  label tree (family &gt; genus &gt; type); unknowns get flagged for the lab. Model version on every row.</li>
+</ul>
+<h3>Power (Pacific Northwest)</h3>
+<ul>
+<li>~3 Wh/day in season, ~0.5 Wh/day in <strong>winter mode (Nov-Feb)</strong>: sensors every 15 min, counter and pollen off, one sync a day.</li>
+<li>2x 18650 (~20 Wh), bq24074 charger with NTC (<strong>no charging below 0 °C</strong>), MAX17048 fuel gauge.</li>
+<li><strong>10 W panel</strong> on its own post, GX12 plug. The post doubles as the mount for a future phase 2 battery box (LiFePO4 + MPPT).</li>
+</ul>
+<h3>Hardware I already have</h3>
+<p>Several ESP32-S3 and ESP32-S3 Plus, Pi Zero 2 W, original Jetson Nano, Pi cameras, 18650 Pi HAT, USB microscope,
+AmScope desktop microscope. (Orange Pi 5 is busy with the <a href="open-diagnostic-cyberdeck.html">Open Diagnostic Cyberdeck</a>.)</p>
+<h3>Next steps (bench season)</h3>
+<ol>
+<li><strong>Needle-skewer hand test:</strong> does ~1 mm of skewer hold through a thread cut? Is the hole visible on the cut face?</li>
+<li><strong>Throat fit:</strong> do 2-4 mm pellets all sit centred, or does it need a V shape?</li>
+<li><strong>Smear quality</strong> at 400x on the AmScope: PG/ethanol streak vs dry tape. Halos? Length of single layer?</li>
+<li><strong>Clearing fluid:</strong> grain swelling at day 0, 7, 30; dry adhesive border seal on a wound spool.</li>
+<li><strong>Blanks:</strong> full cycles with no pellet to measure carryover.</li>
+<li>Trap on a real hive in spring, with fresh pellets.</li>
+</ol>
+<p>Open questions: hive type (Langstroth 8 or 10 frame?), Wi-Fi on site, stand height, frozen pellets for winter testing.</p>
+<h2>Rabbit holes off this one</h2>
+<ul>
+<li><a href="local-llms-on-small-boards.html">Local LLMs on small boards</a></li>
+<li><a href="open-diagnostic-cyberdeck.html">Open Diagnostic Cyberdeck</a></li>
+</ul>
+<h2>Links</h2>
+<ul>
+<li>OpenFlexure Microscope: https://openflexure.org</li>
+<li>Honey.AI pollen analysis: https://www.honey-ai.com/en/technology/pollen-analysis</li>
+<li>Barés et al. 2025, New Phytologist (pellet autofluorescence): https://pubmed.ncbi.nlm.nih.gov/40751536/</li>
+<li>Olsson et al. 2021 (deep learning pollen counts): https://nph.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13575</li>
+<li>Ngo et al. 2021 (pollen-bearing bee detection): https://www.sciencedirect.com/science/article/abs/pii/S0168169921002568</li>
+</ul>
+<h3>Pollen-on-tape method (airborne pollen counters, not bees: borrowed format only)</h3>
+<ul>
+<li>Burkard 7-day recording volumetric spore trap: https://burkard.co.uk/product/7-day-recording-volumetric-spore-trap/</li>
+<li>Stach, Hirst trap drum and slide preparation (345 mm Melinex tape per drum): https://www.termedia.pl/The-use-of-Hirst-volumetric-trap-preparation-of-drums-and-slides,7,2117,1,1.html</li>
+<li>Razmovski 1998, adhesive tapes vs vaseline in Burkard sampling: https://www.tandfonline.com/doi/pdf/10.1080/00173139809362683</li>
+<li>Peel et al. 2014 (adhesive = 9:1 petroleum jelly / paraffin wax on Melinex): https://www.aaem.pl/pdf-72191-9418?filename=9418.pdf</li>
+<li>Crisp 2013, Rotorod vs Burkard pollen counts: https://pubmed.ncbi.nlm.nih.gov/23886230/</li>
+</ul>
+<h3>Tape suppliers (prices checked 2026-11-09)</h3>
+<ul>
+<li>16 mm clear polyester leader, single perf, 100 ft, ~$17 (Christy's): https://store.christys.net/products/16mm-leader-roll-single-perf-100-clear-polyester</li>
+<li>16 mm clear poly leader, 100 ft ~$20 / 400 ft ~$65 (Spectra): https://spectrafilmandvideo.com/product/35mm-16mm-clear-leader-for-archives-and-coloring/</li>
+<li>16 mm clear Mylar leader, 127 µm, from ~$10 (Hollywood Film Supplies): https://hollywoodfilmsupplies.com/film-supplies/16mm-film-leader-polyester-5mil-mylar-kodak</li>
+<li>Clear fingerprint lifting tape, 1.5-2 in, ~$7-8 (Evident): https://www.shopevident.com/category/latent-fingerprints-2/clear-fingerprint-tape</li>
+</ul></div>
+</article>
 </main>
 </body></html>
